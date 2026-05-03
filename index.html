@@ -2,144 +2,29 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EVINFINITY</title>
 
-<style>
-body {
-body {
-  margin: 0;
-  font-family: Arial;
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
-
-  background: radial-gradient(circle at center, #000000, #001a33);
+<style>.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
 }
 
-/* เอฟเฟกต์ไฟวิ่ง */
-body::before {
-  background: linear-gradient(45deg, #00ccff, #0099cc);
-  color: black;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-
-  box-shadow: 0 0 15px #00ccff;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px #00ccff;
-}
-}
-
-@keyframes move {
-  0% { transform: translate(-25%, -25%); }
-  100% { transform: translate(25%, 25%); }
-}
-}
-
-/* หัวเว็บ */
-header{
-  <title>EVINFINITY ช่างไฟ ติดตั้ง EV Charger ปทุมธานี</title>
-
-<meta name="description" content="รับติดตั้งไฟฟ้า เดินสายไฟ ติดตั้ง EV Charger ขายเบรกเกอร์ CHINT Schneider ราคาถูก ปทุมธานี กรุงเทพ">
-
-<meta name="keywords" content="ช่างไฟ, ติดตั้ง EV Charger, เบรกเกอร์, ปทุมธานี, กรุงเทพ">
-
-<meta name="description" content="ขายเบรกเกอร์ CHINT Schneider ติดตั้งไฟฟ้า เดินสายไฟ ติดตั้ง EV Charger ราคาดี บริการครบวงจร">
-
-<meta name="keywords" content="
-เบรกเกอร์,
-ตู้คอนซูเมอร์,
-ติดตั้งไฟฟ้า,
-EV Charger,
-ช่างไฟ,
-Schneider,
-CHINT,
-เดินสายไฟบ้าน">
-}
-
-/* รูปโปร */
-.promo{
-  width:90%;
-  max-width:600px;
-  border-radius:15px;
-  box-shadow:0 0 25px #00ccff;
-  margin:20px auto;
-}
-
-/* กล่องสินค้า */
-.products{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.card{
-  .card {
-  background: #0a0a0a;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 15px;
-
-  box-shadow: 
-    0 0 10px #00ccff,
-    0 0 20px #00ccff inset;
-
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 0 25px #00ccff,
-    0 0 40px #00ccff inset;
-}
-}
-
-.card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 30px #00ccff;
-}
-
-.price{
-  background:red;
-  padding:10px;
-  border-radius:10px;
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-button{
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  background:#00ccff;
-  color:black;
-  margin-top:10px;
-}
-</style> <head>
-<meta https://natthaphon1726.github.io/evinfinity />
-<title>EVINFINITY</title>
-
-<style>
-
-/* วาง CSS ทั้งหมดตรงนี้ */
 .gallery img {
   width: 120px;
-  margin: 10px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 10px #00ccff;
   transition: 0.3s;
 }
 
 .gallery img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
+/* viewer */
 #viewer {
   position: fixed;
   top: 0;
@@ -156,80 +41,200 @@ button{
   max-width: 90%;
   max-height: 90%;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial;
+  background: linear-gradient(180deg, #020617, #031a2e);
+  color: white;
+  text-align: center;
+}
+
+/* หัว */
+h1 {
+  margin: 20px;
+  color: #00ccff;
+}
+
+/* รูปโปร */
+.promo {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* สินค้า */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #111;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.price {
+  background: red;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #0b0f14;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 320px;
+}
 </style>
-</head>
+ 
 </head>
 
 <body>
-  <h1>⚡ EVINFINITY ช่างไฟ ปทุมธานี ติดตั้ง EV Charger</h1>
 
-<p>
-รับติดตั้งไฟฟ้า เดินสายไฟบ้าน ติดตั้ง EV Charger
-ขายเบรกเกอร์ CHINT และ Schneider
-ให้บริการใน ปทุมธานี กรุงเทพ นนทบุรี
-</p> 
+<h1>⚡ EVINFINITY ช่างไฟ ปทุมธานี</h1>
 
-<header>⚡ EVINFINITY ⚡</header>
-
-<!-- รูปโปรโมชั่น -->
 <img src="promo.jpg" class="promo">
 
 <!-- สินค้า -->
 <div class="products">
 
-  <div class="card">
+  <div class="card" onclick="openDetail('8500')">
     <div class="price">8,500฿</div>
     <h3>CHINT</h3>
     <p>เบรกเกอร์ + ตู้คอนซูเมอร์</p>
   </div>
 
-  <div class="card">
+  <div class="card" onclick="openDetail('9500')">
     <div class="price">9,500฿</div>
     <h3>Schneider Easy9</h3>
     <p>เบรกเกอร์ + ตู้ 4 ช่อง</p>
   </div>
 
-  <div class="card">
+  <div class="card" onclick="openDetail('10500')">
     <div class="price">10,500฿</div>
     <h3>Schneider Classic</h3>
     <p>ชุดพรีเมียม</p>
   </div>
 
 </div>
+<h2>📞 ติดต่อเรา</h2>
 
-<!-- บริการ -->
-<div class="card">
-  <h2>⚙️ บริการติดตั้ง</h2>
-  <p>
-    เดินสายไฟบ้าน<br>
-    ติดตั้ง EV Charger<br>
-    ระบบไฟฟ้าครบวงจร
+<div class="contact-box">
+
+  <p>📱 โทร: 
+    <a href="tel:0612191756">061-219-1756</a>
   </p>
-</div>
 
-<!-- ติดต่อ -->
-<div class="card">
-  <h2>📞 ติดต่อ</h2>
-  <p>โทร: 061-219-1756</p>
-  <p>Line: natthaphon1726</p>
-  <p>Line: natthaphon1726</p>
-
-  <a href="https://line.me/ti/p/evinfinity">
-    <button>💬 แอด LINE</button>
+  <!-- 🔽 วางปุ่มตรงนี้ -->
+  <a href="https://line.me/ti/p/natthaphon1726" target="_blank">
+    <button>➕ แอด LINE</button>
   </a>
+
+  <a href="https://line.me/R/msg/text/?สนใจบริการ" target="_blank">
+    <button>💬 ทักแชททันที</button>
+  </a>
+
+</div>
+<!-- popup -->
+<div id="detailBox" class="popup">
+  <div class="popup-content">
+
+    <h2>รายละเอียด</h2>
+    <p id="detailText"></p>
+
+    <a id="lineLink" target="_blank">
+      <button>💬 ทัก LINE</button>
+    </a>
+
+    <br><br>
+    <button onclick="closeDetail()">ปิด</button>
+
+  </div>
 </div>
 
-</body><h2>📸 ผลงานติดตั้ง</h2>
+
+<!-- JS -->
+<script>
+function openDetail(price){
+
+  let text = "";
+
+  if(price == "8500"){
+    text = "CHINT\n- เบรกเกอร์แท้\n- ตู้คอนซูเมอร์\n-สายไฟ YAZAKI1×16 SQ mm. 15 m \n-แท่งกราว์ 240m\n-(หากสายเกินเมตรละ300฿)  รายละเอียด061-219-1756(BENZ)"; 
+  }
+
+  if(price == "9500"){
+    text = "Schneider Easy9\n- มาตรฐานสูง\n- ปลอดภัยกว่า";
+  }
+
+  if(price == "10500"){
+    text = "Schneider Premium\n- คุณภาพสูงสุด\n- รองรับ EV เต็มระบบ";
+  }
+
+  document.getElementById("detailText").innerText = text;
+
+  document.getElementById("lineLink").href =
+    "https://line.me/R/msg/text/?สนใจแพ็คเกจ%20" + price;
+
+  document.getElementById("detailBox").style.display = "flex";
+}
+
+function closeDetail(){
+  document.getElementById("detailBox").style.display = "none";
+}
+</script>
+<div id="viewer" onclick="closeImage()">
+  <img id="bigImage">
+</div>
+</body>
+<h2>📸 ผลงานติดตั้ง</h2>
+   <script>
+function openImage(img){
+  document.getElementById("viewer").style.display = "flex";
+  document.getElementById("bigImage").src = img.src;
+}
+
+function closeImage(){
+  document.getElementById("viewer").style.display = "none";
+}
+</script>
 
 <div class="gallery">
-
   <img src="P1.jpg" onclick="openImage(this)">
   <img src="P2.jpg" onclick="openImage(this)">
   <img src="P3.jpg" onclick="openImage(this)">
-
 </div>
 </html>
-<a href="https://line.me/R/msg/text/?สนใจ%20แพ็คเกจ%208500">
-  <button>🛒 สั่งชุด 8,500</button>
-</a> .
