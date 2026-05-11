@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EVINFINITY</title>
-
+<title>PowerGrid EV</title>
+<style>
+.card:active {
+  transform: scale(0.95);
+}
+</style>
 <style>.gallery {
   display: flex;
   flex-wrap: wrap;
@@ -47,7 +51,44 @@
   box-sizing: border-box;
 }
 
-body {
+body {.btn-line {
+  background: #00c300;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00c300;
+  animation: pulse 2s infinite;
+  transition: 0.3s;
+}
+
+.btn-chat {
+  background: #00ccff;
+  color: black;
+  padding: 14px 25px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ccff;
+  transition: 0.3s;
+}
+
+.btn-line:hover,
+.btn-chat:hover {
+  transform: scale(1.1);
+}
+
+/* กระพริบ */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #00c300; }
+  50% { box-shadow: 0 0 25px #00ff66; }
+  100% { box-shadow: 0 0 10px #00c300; }
+}
   font-family: Arial;
   background: linear-gradient(180deg, #020617, #031a2e);
   color: white;
@@ -119,12 +160,79 @@ h1 {
   max-width: 320px;
 }
 </style>
+   <div class="floating">
+  <a href="tel:0612191756">📞</a>
+  <a href="https://line.me/ti/p/natthaphon1726" target="_blank">💬</a>
+</div>
+
+<style>
+.floating {
+  position: fixed;
+  right: 15px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.floating a {
+  background: #00ccff;
+  margin: 5px 0;
+  padding: 12px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+</style>
  
 </head>
+<div id="noti"></div>
 
+<style>
+#noti {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #111;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #00ffcc;
+  display: none;
+  box-shadow: 0 0 15px #00ffcc;
+  animation: slideUp 0.5s;
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+</style>
+
+<script>
+const messages = [
+  "ลูกค้าเพิ่งสั่ง CHINT ✔️",
+  "มีคนจอง Easy9 ✔️",
+  "ลูกค้าติดตั้ง Premium แล้ว ✔️",
+  "มีลูกค้าทัก LINE เข้ามา 🔥"
+];
+
+setInterval(() => {
+  let box = document.getElementById("noti");
+  let msg = messages[Math.floor(Math.random()*messages.length)];
+  
+  box.innerText = msg;
+  box.style.display = "block";
+
+  setTimeout(() => {
+    box.style.display = "none";
+  }, 3000);
+
+}, 5000);
+</script>
 <body>
 
-<h1>⚡ EVINFINITY ช่างไฟ ปทุมธานี</h1>
+<h1>⚡ PowerGrid EV </h1>
 
 <img src="promo.jpg" class="promo">
 
@@ -132,19 +240,19 @@ h1 {
 <div class="products">
 
   <div class="card" onclick="openDetail('8500')">
-    <div class="price">8,500฿</div>
+    <div class="price">11,500฿</div>
     <h3>CHINT</h3>
     <p>เบรกเกอร์ + ตู้คอนซูเมอร์</p>
   </div>
 
   <div class="card" onclick="openDetail('9500')">
-    <div class="price">9,500฿</div>
+    <div class="price">12,500฿</div>
     <h3>Schneider Easy9</h3>
     <p>เบรกเกอร์ + ตู้ 4 ช่อง</p>
   </div>
 
   <div class="card" onclick="openDetail('10500')">
-    <div class="price">10,500฿</div>
+    <div class="price">13,500฿</div>
     <h3>Schneider Classic</h3>
     <p>ชุดพรีเมียม</p>
   </div>
@@ -222,7 +330,7 @@ function closeDetail(){
 </body>
 <h2>📸 ผลงานติดตั้ง</h2>
    <script>
-function openImage(img){
+function openImage(img){j
   document.getElementById("viewer").style.display = "flex";
   document.getElementById("bigImage").src = img.src;
 }
